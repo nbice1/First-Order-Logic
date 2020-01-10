@@ -75,4 +75,6 @@ def evaluator():
             print ('Please input "model", "evaluate", or "exit".')
             pass
                 
+if __name__ == '__main__': 
+    evaluator()
 
