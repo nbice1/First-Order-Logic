@@ -68,6 +68,9 @@ def evaluator():
             #if the user inputted an improper string, they will get an error message and the program will continue to run
             except AttributeError:
                 print ('That is not a well-formed sentence.')
+            except UnboundLocalError: 
+                print ('Model has not been defined.')
+
         else: 
             print ('Please input "model", "evaluate", or "exit".')
             pass
