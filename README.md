@@ -14,7 +14,7 @@ Then, specify the interpretation of the expression. One-place predicates should 
 
 Type "done" to finish your intepretation. You will then be asked if you want to add additional variables to the language. Default variables are 'u','v','w','x','y','z'. Separate new variables with commas. 
 
-With your model constructed, it is time to determine the truth-value of sentences. After inputting "evaluate", input a sentence to determine its truth-value relative to the constructed model. 
+With your model constructed, it is time to determine the truth-value of a sentence. After inputting "evaluate", input a sentence to determine its truth-value relative to the constructed model. 
 
 The syntax is as follows: 
 
