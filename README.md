@@ -19,14 +19,23 @@ With your model constructed, it is time to determine the truth-value of sentence
 The syntax is as follows: 
 
 'U' - universal quantifier 
+
 'X' - existential quantifier
+
 '>' - material conditional
+
 '~' - negation
+
 '=' - identity symbol
+
 '-' - biconditional
+
 '^' - conjunction
+
 'v' - disjunction
+
 'T' - True
+
 'F' - False
 
 Atomic sentences have the form P(a,b,...,s). This also holds of the identity predicate, e.g. =(1,1) is a sentence. 
@@ -35,13 +44,19 @@ Any formula with a binary connective as its main connective must be surrounded b
 
 Example sentences: 
 (P(a) v Q(a))
+
 UxP(x)
+
 UxXy(G(y,x) v =(x,1))
+
 G(2,1)
 
 Strings that are NOT sentences: 
 P(a) v Q(a)
+
 Ux(P(x))
+
 a = a
+
 (UxP(x))
 
