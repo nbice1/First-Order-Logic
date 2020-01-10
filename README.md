@@ -4,7 +4,7 @@ This project is aimed at developing a program to evaluate the truth-value of sen
 
 Currently, the program for evaluating the truth-value of sentences in FOL relative to a model is written. A program for constructing proofs in FOL will be added later. 
 
-The function evaluator() is the main function. It is located in fol_evaluator.py. After running evaluator(), you can input "model", "evaluate", or "exit". 
+The function evaluator() is the main function. It is located in fol_evaluator.py. Executing this script will call the function. After running evaluator(), you can input "model", "evaluate", or "exit". 
 
 You should first define a model. After typing "model", you will be prompted to specify a domain of objects (separate inputs with commas). An example would be: 1,2,3,4. Note that the python "eval()" function is used to determine the intended datatypes. 
 
