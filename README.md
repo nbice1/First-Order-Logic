@@ -43,6 +43,7 @@ Atomic sentences have the form P(a,b,...,s). This also holds of the identity pre
 Any formula with a binary connective as its main connective must be surrounded by parentheses. Any other formula must not be surrounded by parentheses. 
 
 Example sentences: 
+
 (P(a) v Q(a))
 
 UxP(x)
@@ -52,6 +53,7 @@ UxXy(G(y,x) v =(x,1))
 G(2,1)
 
 Strings that are NOT sentences: 
+
 P(a) v Q(a)
 
 Ux(P(x))
