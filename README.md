@@ -74,16 +74,16 @@ The derivation system is a natural deduction system for first-order logic with i
 
 Proofs will be printed as follows: 
 
-0\s\s\s    (P(a) ^ P(b))  
-1\s\s\s    P(c)  
+0    (P(a) ^ P(b))  
+1    P(c)  
 \_______________
 
-2\s\s\s    P(a)  
-3\s\s\s    (P(a) ^ P(c))  
-4\s\s\s    | Q(d)  
-5\s\s\s    | (P(a) ^ P(c))  
+2    P(a)  
+3    (P(a) ^ P(c))  
+4    | Q(d)  
+5    | (P(a) ^ P(c))  
 6  
-7\s\s\s    (Q(d) > (P(a) ^ P(c))
+7    (Q(d) > (P(a) ^ P(c))
 
 Here, lines 0 and 1 are premises. Line 4 begins a subproof. Line 6 ends the subproof. Line 7 is the desired conclusion. 
 
