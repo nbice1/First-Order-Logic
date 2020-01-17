@@ -145,7 +145,7 @@ vE,j,k-l,m-n - Apply Disjunction Elimination to the disjunction at line j using 
 
 =E,n,m - Apply Identity Elimination using the identity at line n and replacing instances of the first constant by the second at line m. 
 
-XI,n,c,x - Apply Existential Introduction to the formula at line n, replacing each free instance of constant c by variable x. 
+XI,n,c,x - Apply Existential Introduction to the formula at line n, replacing each instance of constant c by variable x. 
 
 XE,k,n,m,c - Apply Existential Elimination to the existentially-quantified formula at line k and the subproof beginning at n and ending at m. The formula at line n must be the subformula of the formula at line k with the free instances of its variable replaced by the constant c. This constant must not appear earlier in the proof, nor can it be in the formula at line m. The formula at line m will be outputted. 
 
