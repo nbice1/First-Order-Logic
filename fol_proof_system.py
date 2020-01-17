@@ -741,11 +741,11 @@ def prover():
                     except (IndexError,ValueError): 
                         print ('You must specify line numbers and a constant.')
                 elif rule[0] == 'Finish': 
-                    if len(prem) == 0: 
+                    if len(proof) == 0: 
+                        print ('You have not begun a proof.')
+                    elif len(prem) == 0: 
                         print ('Theorem: {}.'.format(str(proof[-1])))
                         break
-                    elif len(proof) == 0: 
-                        print ('You have not begun a proof.')
                     else: 
                         prem_str = ''
                         if len(prem) == 1: 
