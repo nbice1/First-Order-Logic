@@ -155,14 +155,14 @@ Here without loss of generality I don't bother assuming that the function always
 \_________________
  
 1      XdUxUy(L(x,y,d) > XuXv((H(x,u) ^ H(y,v)) ^ L(u,v,e1)))  - UE,0,e1  
-2     | UxUy(L(x,y,d1) > XuXv((H(x,u) ^ H(y,v)) ^ L(u,v,e1)))  - Assume,UxUy(L(x,y,d1) > XuXv((H(x,u) ^ H(y,v)) ^ L(u,v,e1))) 
-3     | Uy(L(r,y,d1) > XuXv((H(r,u) ^ H(y,v)) ^ L(u,v,e1)))    - UE,2,r
-4     | (L(r,p,d1) > XuXv((H(r,u) ^ H(p,v)) ^ L(u,v,e1)))      - UE,3,p
-5     | Xd(L(r,p,d) > XuXv((H(r,u) ^ H(p,v)) ^ L(u,v,e1)))     - XI,4,d1,d
+2     | UxUy(L(x,y,d1) > XuXv((H(x,u) ^ H(y,v)) ^ L(u,v,e1)))  - Assume,UxUy(L(x,y,d1) > XuXv((H(x,u) ^ H(y,v)) ^ L(u,v,e1)))  
+3     | Uy(L(r,y,d1) > XuXv((H(r,u) ^ H(y,v)) ^ L(u,v,e1)))    - UE,2,r  
+4     | (L(r,p,d1) > XuXv((H(r,u) ^ H(p,v)) ^ L(u,v,e1)))      - UE,3,p  
+5     | Xd(L(r,p,d) > XuXv((H(r,u) ^ H(p,v)) ^ L(u,v,e1)))     - XI,4,d1,d  
 6       
-7      Xd(L(r,p,d) > XuXv((H(r,u) ^ H(p,v)) ^ L(u,v,e1)))      - XE,1,2,5,d1
-8      UxXd(L(x,p,d) > XuXv((H(x,u) ^ H(p,v)) ^ L(u,v,e1)))    - UI,7,r,x
-9      UeUxXd(L(x,p,d) > XuXv((H(x,u) ^ H(p,v)) ^ L(u,v,e)))   - UI,8,e1,e
+7      Xd(L(r,p,d) > XuXv((H(r,u) ^ H(p,v)) ^ L(u,v,e1)))      - XE,1,2,5,d1  
+8      UxXd(L(x,p,d) > XuXv((H(x,u) ^ H(p,v)) ^ L(u,v,e1)))    - UI,7,r,x  
+9      UeUxXd(L(x,p,d) > XuXv((H(x,u) ^ H(p,v)) ^ L(u,v,e)))   - UI,8,e1,e  
 
 Theorem: If UeXdUxUy(L(x,y,d) > XuXv((H(x,u) ^ H(y,v)) ^ L(u,v,e))) then UeUxXd(L(x,p,d) > XuXv((H(x,u) ^ H(p,v)) ^ L(u,v,e))).
 
