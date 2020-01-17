@@ -76,7 +76,7 @@ Proofs will be printed as follows:
 
 0    (P(a) ^ P(b))  
 1    P(c)  
-_______________
+\_______________
 
 2    P(a)  
 3    (P(a) ^ P(c))  
