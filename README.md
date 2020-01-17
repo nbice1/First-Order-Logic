@@ -107,6 +107,8 @@ Assume,p - Begin a subproof with assumption p, where p is a sentence.
 
 End - Exit the current subproof.
 
+R,n - Apply Reiteration to the formula at line n. 
+
 ^EL,n - Apply Conjunction Elimination to the left conjunct of the conjunciton at line n.
 
 ^ER,n - Apply Conjunction Elimination to the right conjunct of the conjunction at line n.
@@ -123,4 +125,16 @@ vIL,n,p - Apply Disjunction Introduction to the formula at line n, resulting in 
 
 vIR,n,p - Apply Disjunction Introduction to the formula at line n, resulting in a formula with formula p as its right disjunct. 
 
+vE,j,k-l,m-n - Apply Disjunction Elimination to the disjunction at line j using subproofs k-l and m-n. Subproofs k-l and m-n must begin with the left and right disjunct, respectively, of the disjunction and must end with the same formula, which will be outputted. 
 
+>E,n,m - Apply Conditional Elimination to the conditional at line m using its antecendent at line n. 
+
+>I,n-m - Apply Conditional Introduction to the subproof from line n to m. 
+
+~E,n - Apply Negation Elimination to the double negation at line n. 
+
+~I,n-m - Apply Negation Introduction to the subformula from line n to m. The formula at line m must be F. 
+
+-ER,n,m - Apply Biconditional Elimination to the formula at line n using the left subformula at line m, outputting the right subformula. 
+
+-EL,n,m - Apply Biconditional Elimination to the formula at line n using the right subformula at line m, outputting the left subformula. 
