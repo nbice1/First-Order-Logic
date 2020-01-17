@@ -147,23 +147,4 @@ UE,n,c - Apply Universal Elimination to the formula at line n, replacing each fr
 
 UI,n,c,x - Apply Universal Introduction to the formula at line n, replacing each instance of constant c by variable x. Constant c cannot appear in a premise or an active assumption. 
 
-## A Proof that the Uniform Continuity of a Real Function Implies its Continuity at p
-
-Here without loss of generality I don't bother assuming that the function always produces a unique output (i.e. is well-defined). H(r,s) means that function H outputs s on input r. L(x,y,e) means that the distance between x and y is less than e. 
-
-0     UeXdUxUy(L(x,y,d) > XuXv((H(x,u) ^ H(y,v)) ^ L(u,v,e)))  - premise  
-\_________________
- 
-1      XdUxUy(L(x,y,d) > XuXv((H(x,u) ^ H(y,v)) ^ L(u,v,e1)))  - UE,0,e1  
-2     | UxUy(L(x,y,d1) > XuXv((H(x,u) ^ H(y,v)) ^ L(u,v,e1)))  - Assume,UxUy(L(x,y,d1) > XuXv((H(x,u) ^ H(y,v)) ^ L(u,v,e1)))  
-3     | Uy(L(r,y,d1) > XuXv((H(r,u) ^ H(y,v)) ^ L(u,v,e1)))    - UE,2,r  
-4     | (L(r,p,d1) > XuXv((H(r,u) ^ H(p,v)) ^ L(u,v,e1)))      - UE,3,p  
-5     | Xd(L(r,p,d) > XuXv((H(r,u) ^ H(p,v)) ^ L(u,v,e1)))     - XI,4,d1,d  
-6                                                              
-7      Xd(L(r,p,d) > XuXv((H(r,u) ^ H(p,v)) ^ L(u,v,e1)))      - XE,1,2,5,d1  
-8      UxXd(L(x,p,d) > XuXv((H(x,u) ^ H(p,v)) ^ L(u,v,e1)))    - UI,7,r,x  
-9      UeUxXd(L(x,p,d) > XuXv((H(x,u) ^ H(p,v)) ^ L(u,v,e)))   - UI,8,e1,e  
-
-Theorem: If UeXdUxUy(L(x,y,d) > XuXv((H(x,u) ^ H(y,v)) ^ L(u,v,e))) then UeUxXd(L(x,p,d) > XuXv((H(x,u) ^ H(p,v)) ^ L(u,v,e))).
-
 Some rules can currently be used in nonstandard ways, but the system should remain sound. Finding any violations of soundness would be greatly appreciated. 
