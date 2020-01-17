@@ -151,7 +151,7 @@ XE,k,n,m,c - Apply Existential Elimination to the existentially-quantified formu
 
 UE,n,c - Apply Universal Elimination to the formula at line n, replacing each free instance of its variable with the constant c. 
 
-UI,n,c,x - Apply Universal Introduction to the formula at line n, replacing each instance of constant c by variable x. Constant c cannot appear in a premise or a previous assumption. 
+UI,n,c,x - Apply Universal Introduction to the formula at line n, replacing each instance of constant c by variable x. Constant c cannot appear in a premise or an active assumption. 
 
 
 Some rules can currently be used in nonstandard ways, but the system should remain sound. Finding any violations of soundness would be greatly appreciated. 
