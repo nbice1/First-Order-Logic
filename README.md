@@ -138,3 +138,6 @@ vE,j,k-l,m-n - Apply Disjunction Elimination to the disjunction at line j using 
 -ER,n,m - Apply Biconditional Elimination to the formula at line n using the left subformula at line m, outputting the right subformula. 
 
 -EL,n,m - Apply Biconditional Elimination to the formula at line n using the right subformula at line m, outputting the left subformula. 
+
+-I,k-l,m-n - Apply Biconditional Introduction using the formulas from k to l and m to n. The formula at k must be identical to the formula at n and the formula at l must be identical to the formula at m. 
+
