@@ -37,12 +37,12 @@ def assum(formula):
 
 
 #function to ensure user isn't trying to reference a line in a different hypothesis space
-def hyp_space_rel(prem, proof, line, exit_lines, or_elim=False): 
+def hyp_space_rel(prem, proof, line, exit_lines, sub=False): 
     emb = 0
     emb_thresh = 0
     for n in range(len(proof)): 
         if line == n + len(prem):
-            if or_elim == False: 
+            if sub == False: 
                 emb_thresh = emb
             else: 
                 emb_thresh = emb - 1
@@ -116,6 +116,17 @@ def bound_fix(formula, var):
                     tok[l] = tok[l].replace(var,'*')
     final = parse(tok)
     return final
+
+
+#function to output active assumptions
+def active_assum(prem,proof,exit_lines): 
+    active = []
+    for n in range(len(proof)): 
+        if type(proof[n]) == list: 
+            active.append(proof[n][0])
+        elif n + len(prem) in exit_lines: 
+            active.pop()
+    return active
 
 
 
@@ -676,15 +687,18 @@ def prover():
                         print ('You must specify a line number.')
                 elif rule[0] == 'UI': 
                     try: 
-                        if hyp_space_rel(prem,proof,int(rule[1]),exit_lines,True) == False: 
+                        if hyp_space_rel(prem,proof,int(rule[1]),exit_lines) == False: 
                             print ('You can no longer use the specified formula.')
-                        elif rule[2][0].islower() == False and rule[2][0] not in string.digits():
-                            print ('That is not an appropriate constant.')
+                        elif (rule[2][0].islower() == False and rule[2][0] not in string.digits()) or \
+                        rule[3][0].islower() == False:
+                            print ('That is not an appropriate constant or variable.')
                         else: 
                             prem_strs = [str(pr) for pr in prem]
-                            assum_strs = [str(a[0]) for a in proof if type(a) == list]
-                            if rule[2] in str(prem_strs) or rule[2] in str(assum_strs): 
-                                print ('That constant appears in a premise or an assumption.')
+                            assum_strs = str(active_assum(prem,proof,exit_lines))
+                            if rule[2] in str(prem_strs): 
+                                print ('That constant appears in a premise.')
+                            elif rule[2] in str(assum_strs): 
+                                print ('That constant appears in an active assumption.')
                             else: 
                                 if int(rule[1]) < len(prem): 
                                     print ('You cannot generalize from a premise.')
