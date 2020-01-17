@@ -52,7 +52,7 @@ a = a
 
 (UxP(x))
 
-### Determining the Truth-Value of Sentences Relative to a Model
+## Determining the Truth-Value of Sentences Relative to a Model
 
 After running evaluator(), you can input "model", "evaluate", or "exit". 
 
@@ -66,7 +66,7 @@ Type "done" to finish your intepretation. You will then be asked if you want to 
 
 With your model constructed, it is time to determine the truth-value of a sentence. After inputting "evaluate", input a sentence to determine its truth-value relative to the constructed model. 
 
-### Constructing a Proof
+## Constructing a Proof
 
 The derivation system is designed to be sound and complete. Hence, any mathematical proof could in-principle be translated into this system and checked for validity. 
 
