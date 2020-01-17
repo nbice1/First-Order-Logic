@@ -6,6 +6,8 @@ Created on Tue Jan  7 14:41:01 2020
 @author: nmbice
 """
 
+import string
+
 #parse atomic formulas
 def atomic_parser(formula): 
 
@@ -25,6 +27,15 @@ def atomic_parser(formula):
     args = formula[par_ind+1:-1]
     
     cons = args.split(',')
+    
+    if pred[0].isupper() == False and pred[0] != '=': 
+        print ('That expression is not an appropriate predicate.')
+        return None
+    
+    for con in cons: 
+        if con[0].islower() == False and con[0] not in string.digits: 
+            print ('That expression is not an appropriate constant.')
+            return None
     
     #print (cons)
     
@@ -89,17 +100,6 @@ def atomic_evaluator(formula, MOD):
 #            '1': 1, '2': 2, '3': 3, 'N': {1,2,3}})
 
 
-
-#function to flatten nested lists, which will be used to check for particular constants in proof system
-def remove_nestings(l, output=[]): 
-    
-    for i in l: 
-        if type(i) == list: 
-            remove_nestings(i, output)
-        else: 
-            output.append(i)
-            
-    return output
             
     
     

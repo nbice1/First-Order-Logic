@@ -258,7 +258,7 @@ class Existential:
     
 
 #this is a list of special characters used by the parser to parse an inputted string
-seps = ['(', ')', ',', '~', '^', 'v', '>', '-', 'T', 'F', 'U', 'X']
+seps = ['(', ')', ',', '~', '^', 'v', '>', '-', 'U', 'X']
 
 
 #next are functions for determining the type of a string
@@ -315,6 +315,12 @@ def tokenize(inputString):
                     result.append(inputString[n:m])
                     state = 'var'
                     break
+        elif valueTok(inputString[n]) and state == 'open': 
+            result.append(inputString[n])
+            if n < len(inputString) - 1 and (inputString[n+1] in string.ascii_letters or \
+            inputString[n+1] in string.digits): 
+                print ('That is not a well-formed formula.')
+                return None
         elif state == 'atomic' and inputString[n] == ')': 
                     state = 'open'
         elif (state == 'var' and PredTok(inputString[n])) or state == 'open':
