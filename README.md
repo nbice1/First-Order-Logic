@@ -163,6 +163,7 @@ Here without loss of generality I don't bother assuming that the function always
 7      Xd(L(r,p,d) > XuXv((H(r,u) ^ H(p,v)) ^ L(u,v,e1)))  
 8      UxXd(L(x,p,d) > XuXv((H(x,u) ^ H(p,v)) ^ L(u,v,e1)))  
 9      UeUxXd(L(x,p,d) > XuXv((H(x,u) ^ H(p,v)) ^ L(u,v,e)))  
+
 Theorem: If UeXdUxUy(L(x,y,d) > XuXv((H(x,u) ^ H(y,v)) ^ L(u,v,e))) then UeUxXd(L(x,p,d) > XuXv((H(x,u) ^ H(p,v)) ^ L(u,v,e))).
 
 Some rules can currently be used in nonstandard ways, but the system should remain sound. Finding any violations of soundness would be greatly appreciated. 
