@@ -127,9 +127,9 @@ vIR,n,p - Apply Disjunction Introduction to the formula at line n, resulting in 
 
 vE,j,k-l,m-n - Apply Disjunction Elimination to the disjunction at line j using subproofs k-l and m-n. Subproofs k-l and m-n must begin with the left and right disjunct, respectively, of the disjunction and must end with the same formula, which will be outputted. 
 
->E,n,m - Apply Conditional Elimination to the conditional at line m using its antecendent at line n. 
+\>E,n,m - Apply Conditional Elimination to the conditional at line m using its antecendent at line n. 
 
->I,n-m - Apply Conditional Introduction to the subproof from line n to m. 
+\>I,n-m - Apply Conditional Introduction to the subproof from line n to m. 
 
 ~E,n - Apply Negation Elimination to the double negation at line n. 
 
