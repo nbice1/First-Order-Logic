@@ -74,7 +74,7 @@ The derivation system is a natural deduction system for first-order logic with i
 
 Proofs will be printed as follows: 
 
-0    (P(a) ^ P(b)) \s
+0    (P(a) ^ P(b)) \s\s
 1    P(c)
 _______________
 
