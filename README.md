@@ -141,3 +141,17 @@ vE,j,k-l,m-n - Apply Disjunction Elimination to the disjunction at line j using 
 
 -I,k-l,m-n - Apply Biconditional Introduction using the formulas from k to l and m to n. The formula at k must be identical to the formula at n and the formula at l must be identical to the formula at m. 
 
+=I,c - Apply Identity Introduction with constant c, outputting =(c,c). 
+
+=E,n,m - Apply Identity Elimination using the identity at line n and replacing instances of the first constant by the second at line m. 
+
+XI,n,c,x - Apply Existential Introduction to the formula at line n, replacing each free instance of constant c by variable x. 
+
+XE,k,n,m,c - Apply Existential Elimination to the existentially-quantified formula at line k and the subproof beginning at n and ending at m. The formula at line n must be the subformula of the formula at line k with the free instances of its variable replaced by the constant c. This constant must not appear earlier in the proof, nor can it be in the formula at line m. The formula at line m will be outputted. 
+
+UE,n,c - Apply Universal Elimination to the formula at line n, replacing each free instance of its variable with the constant c. 
+
+UI,n,c,x - Apply Universal Introduction to the formula at line n, replacing each instance of constant c by variable x. Constant c cannot appear in a premise or a previous assumption. 
+
+
+Some rules can currently be used in nonstandard ways, but the system should remain sound. Finding any violations of soundness would be greatly appreciated. 
