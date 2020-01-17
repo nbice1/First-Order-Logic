@@ -72,13 +72,49 @@ The derivation system is designed to be sound and complete. Hence, any mathemati
 
 The derivation system is a natural deduction system for first-order logic with identity. One will first be asked to state the premises. One will then be asked to apply inference rules. One can always input "Exit" to exit the program. 
 
+Proofs will be printed as follows: 
+
+0    (P(a) ^ P(b))
+1    P(c)
+_______________
+
+2    P(a)
+3    (P(a) ^ P(c))
+4    | Q(d)
+5    | (P(a) ^ P(c))
+6
+7    (Q(d) > (P(a) ^ P(c))
+
+Here, lines 0 and 1 are premises. Line 4 begins a subproof. Line 6 ends the subproof. Line 7 is the desired conclusion. 
+
 Separate premises with commas. If no input is given, the proof will proceed without premises. The rest of the system consists of applying inference rules. The following commands can be used at any point: 
 
-Exit - Exit the program
+Exit - Exit the program.
 
-delete - remove the last line of the proof
+delete - Remove the last line of the proof.
 
-Finish - Output the theorem proved
+Finish - Output the theorem proved.
 
 The following commands are the basic inference rules: 
+
+Assume,p - Begin a subproof with assumption p, where p is a sentence.
+
+End - Exit the current subproof.
+
+^EL,n - Apply Conjunction Elimination to the left conjunct of the conjunciton at line n.
+
+^ER,n - Apply Conjunction Elimination to the right conjunct of the conjunction at line n.
+
+^I,n,m - Apply Conjunction Introduction to the formulas at lines n and m.
+
+TI - Apply Tautology Introduction.
+
+FI,n,m - Apply Contradiction Introduction to formulas at lines n and m. The second formula must be the negation of the first.
+
+FE,n - Apply Contradiction Elimination to the formula F at line n. 
+
+vIL,n,p - Apply Disjunction Introduction to the formula at line n, resulting in a formula with formula p as its left disjunct. 
+
+vIR,n,p - Apply Disjunction Introduction to the formula at line n, resulting in a formula with formula p as its right disjunct. 
+
 
