@@ -1,6 +1,6 @@
-# First-Order-Logic
+# First-Order Logic with Identity
 
-This project is aimed at developing a program to evaluate the truth-value of sentences in First-Order Logic and construct proofs.
+This project is aimed at developing a program to evaluate the truth-value of sentences in First-Order Logic with Identity and construct proofs.
 
 There are two main functions, evaluator() and prover(), located in fol_evaluator.py and fol_proof_system.py, respectively. Functions are executed when the programs are run. 
 
@@ -67,4 +67,18 @@ Type "done" to finish your intepretation. You will then be asked if you want to 
 With your model constructed, it is time to determine the truth-value of a sentence. After inputting "evaluate", input a sentence to determine its truth-value relative to the constructed model. 
 
 ### Constructing a Proof
+
+The derivation system is designed to be sound and complete. Hence, any mathematical proof could in-principle be translated into this system and checked for validity. 
+
+The derivation system is a natural deduction system for first-order logic with identity. One will first be asked to state the premises. One will then be asked to apply inference rules. One can always input "Exit" to exit the program. 
+
+Separate premises with commas. If no input is given, the proof will proceed without premises. The rest of the system consists of applying inference rules. The following commands can be used at any point: 
+
+Exit - Exit the program
+
+delete - remove the last line of the proof
+
+Finish - Output the theorem proved
+
+The following commands are the basic inference rules: 
 
