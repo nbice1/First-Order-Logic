@@ -97,7 +97,7 @@ Separate premises with commas. If no input is given, the proof will proceed with
 
 Exit - Exit the program.
 
-delete - Remove the last line of the proof.
+Delete - Remove the last line of the proof.
 
 Finish - Output the theorem proved.
 
