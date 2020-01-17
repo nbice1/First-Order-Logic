@@ -105,9 +105,9 @@ def bound_fix(formula, var):
                 par_lev = 0
                 scope_end = 0
                 for m in range(n+2,len(tok)): 
-                    if tok['m'] == '(': 
+                    if tok[m] == '(': 
                         par_lev += 1
-                    elif tok['m'] == ')': 
+                    elif tok[m] == ')': 
                         par_lev -= 1
                     elif par_lev == 0: 
                         scope_end = m
