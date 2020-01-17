@@ -191,7 +191,7 @@ def prover():
                     except (IndexError, ValueError): 
                         print ('You must specify a formula to assume.')
                     
-                elif rule[0] == 'delete': 
+                elif rule[0] == 'Delete': 
                     proof = proof[:-1]
                     proof_display(prem, proof, exit_lines)
                 
@@ -343,7 +343,7 @@ def prover():
                 elif rule[0] == 'vE': 
                     try: 
                         if hyp_space_rel(prem,proof,int(rule[1]),exit_lines) == False: 
-                            print ('You can no longer use a specified formula.')
+                            print ('You can no longer use the specified formula.')
                         else: 
                             a1 = rule[2].split('-')
                             a2 = rule[3].split('-')
@@ -542,6 +542,27 @@ def prover():
                                 print ('That is not a biconditional with the second formula as its right subformula.')
                             else: 
                                 proof.append(form1.left)
+                                proof_display(prem,proof,exit_lines)
+                    except (IndexError,ValueError): 
+                        print ('You must specify line numbers.')
+                elif rule[0] == '-ER': 
+                    try: 
+                        if hyp_space_rel(prem,proof,int(rule[1]),exit_lines) == False or \
+                        hyp_space_rel(prem,proof,int(rule[2]),exit_lines) == False: 
+                            print ('You can no longer use a specified formula.')
+                        else: 
+                            if int(rule[1]) < len(prem): 
+                                form1 = assum(prem[int(rule[1])])
+                            else: 
+                                form1 = assum(proof[int(rule[1]) - len(prem)])
+                            if int(rule[2]) < len(prem): 
+                                form2 = assum(prem[int(rule[2])])
+                            else: 
+                                form2 = assum(proof[int(rule[2]) - len(prem)])
+                            if type(form1) != Bicond or str(form1.left) != str(form2): 
+                                print ('That is not a biconditional with the second formula as its right subformula.')
+                            else: 
+                                proof.append(form1.right)
                                 proof_display(prem,proof,exit_lines)
                     except (IndexError,ValueError): 
                         print ('You must specify line numbers.')
