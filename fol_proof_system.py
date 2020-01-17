@@ -109,6 +109,8 @@ def bound_fix(formula, var):
                         par_lev += 1
                     elif tok[m] == ')': 
                         par_lev -= 1
+                        if m == len(tok) - 1: 
+                            scope_end = m
                     elif par_lev == 0: 
                         scope_end = m
                         break
