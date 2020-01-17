@@ -7,7 +7,7 @@ Created on Mon Jan 13 10:28:04 2020
 """
 
 from fol_syntax_semantics import parse, tokenize, TruthValue, And, Or, Not, Implies, Bicond, \
-Atomic, Universal, Existential, atomicTok
+Universal, Existential, atomicTok
 from fol_atomic import atomic_parser
 import re
 import string
@@ -36,7 +36,7 @@ def assum(formula):
     
 
 
-#function to ensure user isn't trying to reference a line in a different hypothesis space
+#function to ensure user isn't trying to reference a line in a different subproof
 def hyp_space_rel(prem, proof, line, exit_lines, sub=False): 
     emb = 0
     emb_thresh = 0
@@ -56,7 +56,7 @@ def hyp_space_rel(prem, proof, line, exit_lines, sub=False):
 
 
 
-#function to make sure the user isn't trying to exit the base hypothesis space
+#function to make sure the user isn't trying to exit the base proof
 def end_checker(prem,proof,exit_lines): 
     emb = 0
     for n in range(len(proof)): 
@@ -157,6 +157,7 @@ def proof_display(prem, proof, exit_lines):
     
 
 #this is the main function for constructing and validating proofs
+#see Readme file for command descriptions
 def prover():
     proof = []
     prem = []
@@ -314,12 +315,12 @@ def prover():
                         else: 
                             if int(rule[1]) < len(prem): 
                                 line = int(rule[1])
-                                new = Or(prem[line],parse(tokenize(rule[2])))
+                                new = Or(assum(prem[line]),parse(tokenize(rule[2])))
                                 proof.append(new)
                                 proof_display(prem, proof, exit_lines)
                             else: 
                                 line = int(rule[1]) - len(prem)
-                                new = Or(proof[line],parse(tokenize(rule[2])))
+                                new = Or(assum(proof[line]),parse(tokenize(rule[2])))
                                 proof.append(new)
                                 proof_display(prem, proof, exit_lines)
                     except (IndexError, ValueError): 
@@ -332,12 +333,12 @@ def prover():
                         else: 
                             if int(rule[1]) < len(prem): 
                                 line = int(rule[1])
-                                new = Or(parse(tokenize(rule[2])),prem[line])
+                                new = Or(parse(tokenize(rule[2])),assum(prem[line]))
                                 proof.append(new)
                                 proof_display(prem, proof, exit_lines)
                             else: 
                                 line = int(rule[1]) - len(prem)
-                                new = Or(parse(tokenize(rule[2])),proof[line])
+                                new = Or(parse(tokenize(rule[2])),assum(proof[line]))
                                 proof.append(new)
                                 proof_display(prem, proof, exit_lines)
                     except (IndexError, ValueError): 
