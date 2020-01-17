@@ -78,16 +78,11 @@ Proofs will be printed as follows:
 1    P(c)  
 _______________
 
-2    P(a)
-
-3    (P(a) ^ P(c))
-
-4    | Q(d)
-
-5    | (P(a) ^ P(c))
-
-6
-
+2    P(a)  
+3    (P(a) ^ P(c))  
+4    | Q(d)  
+5    | (P(a) ^ P(c))  
+6  
 7    (Q(d) > (P(a) ^ P(c))
 
 Here, lines 0 and 1 are premises. Line 4 begins a subproof. Line 6 ends the subproof. Line 7 is the desired conclusion. 
