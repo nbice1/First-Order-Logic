@@ -149,7 +149,7 @@ UI,n,c,x - Apply Universal Introduction to the formula at line n, replacing each
 
 ## A Proof that the Uniform Continuity of a Real Function Implies its Continuity at p
 
-Here without loss of generality I don't bother assuming that the function always produces a unique output (i.e. is well-defined). 
+Here without loss of generality I don't bother assuming that the function always produces a unique output (i.e. is well-defined). H(r,s) means that function H outputs s on input r. L(x,y,e) means that the distance between x and y is less than e. 
 
 0     UeXdUxUy(L(x,y,d) > XuXv((H(x,u) ^ H(y,v)) ^ L(u,v,e)))  - premise  
 \_________________
