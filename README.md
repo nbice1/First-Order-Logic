@@ -127,7 +127,7 @@ vE,j,k-l,m-n - Apply Disjunction Elimination to the disjunction at line j using 
 
 ~E,n - Apply Negation Elimination to the double negation at line n. 
 
-~I,n-m - Apply Negation Introduction to the subformula from line n to m. The formula at line m must be F. 
+~I,n-m - Apply Negation Introduction to the subproof from line n to m. The formula at line m must be F. 
 
 -ER,n,m - Apply Biconditional Elimination to the formula at line n using the left subformula at line m, outputting the right subformula. 
 
