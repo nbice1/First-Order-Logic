@@ -761,8 +761,11 @@ def prover():
                     if len(proof) == 0: 
                         print ('You have not begun a proof.')
                     elif len(prem) == 0: 
-                        print ('Theorem: {}.'.format(str(proof[-1])))
-                        break
+                        if len(active_assum(prem,proof,exit_lines)) > 0: 
+                            print ('You still have an active assumption.')
+                        else: 
+                            print ('Theorem: {}.'.format(str(proof[-1])))
+                            break
                     else: 
                         prem_str = ''
                         if len(prem) == 1: 
