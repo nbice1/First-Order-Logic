@@ -103,7 +103,7 @@ End - Exit the current subproof.
 
 R,n - Apply Reiteration to the formula at line n. 
 
-^EL,n - Apply Conjunction Elimination to the left conjunct of the conjunciton at line n.
+^EL,n - Apply Conjunction Elimination to the left conjunct of the conjunction at line n.
 
 ^ER,n - Apply Conjunction Elimination to the right conjunct of the conjunction at line n.
 
@@ -113,7 +113,7 @@ TI - Apply Tautology Introduction.
 
 FI,n,m - Apply Contradiction Introduction to formulas at lines n and m. The second formula must be the negation of the first.
 
-FE,n - Apply Contradiction Elimination to the formula F at line n. 
+FE,n,p - Apply Contradiction Elimination to the formula F at line n, resulting in the derivation of formula p. 
 
 vIL,n,p - Apply Disjunction Introduction to the formula at line n, resulting in a formula with formula p as its left disjunct. 
 
