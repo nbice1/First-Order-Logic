@@ -773,8 +773,11 @@ def prover():
                             for pr in prem[:-1]: 
                                 prem_str = prem_str + str(pr) + ', '
                             prem_str = prem_str + 'and ' + str(prem[-1])
-                        print ('Theorem: If {0} then {1}.'.format(prem_str,str(proof[-1])))
-                        break
+                        if len(active_assum(prem,proof,exit_lines)) > 0: 
+                            print ('You still have an active assumption.')
+                        else: 
+                            print ('Theorem: If {0} then {1}.'.format(prem_str,str(proof[-1])))
+                            break
 #                elif rule[0] == 'Restart': 
 #                    prover()
                 else: 
