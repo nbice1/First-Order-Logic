@@ -650,7 +650,7 @@ def prover():
                             if int(rule[1]) < len(prem): 
                                 form = prem[int(rule[1])]
                             else: 
-                                form = proof[int(rule[1]) - len(prem)]
+                                form = assum(proof[int(rule[1]) - len(prem)])
                             var_set = set()
                             bound_vars = bound_var(form, var_set)
                             var_set = set()
