@@ -52,7 +52,7 @@ a = a
 
 (UxP(x))
 
-## Determining the Truth-Value of Sentences Relative to a Model
+## Determining the Truth-Value of a Sentence Relative to a Model
 
 After running evaluator(), you can input "model", "evaluate", or "exit". 
 
