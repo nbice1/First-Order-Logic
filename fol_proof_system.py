@@ -206,6 +206,8 @@ def prover():
                         print ('You must specify a formula to assume.')
                     
                 elif rule[0] == 'Delete': 
+                    if (len(proof) + len(prem) - 1) in exit_lines: 
+                        exit_lines = exit_lines[:-1]
                     proof = proof[:-1]
                     proof_display(prem, proof, exit_lines)
                 
