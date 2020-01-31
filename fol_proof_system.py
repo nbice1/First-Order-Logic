@@ -55,7 +55,7 @@ def hyp_space_rel(prem, proof, line, exit_lines, sub=False, line2=None):
     if sub == True and emb_thresh < emb: 
         return False
     elif sub == True and line2: 
-        return hyp_space_rel(prem,proof[:len(prem) - line2 + 1],line,exit_lines,False,False)
+        return hyp_space_rel(prem,proof[:line2 - len(prem) + 1],line,exit_lines,False,False)
     return True
 
 
