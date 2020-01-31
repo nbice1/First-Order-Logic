@@ -37,7 +37,7 @@ def assum(formula):
 
 
 #function to ensure user isn't trying to reference a line in a different subproof
-def hyp_space_rel(prem, proof, line, exit_lines, sub=False): 
+def hyp_space_rel(prem, proof, line, exit_lines, sub=False, line2=False): 
     emb = 0
     emb_thresh = 0
     for n in range(len(proof)): 
@@ -52,6 +52,10 @@ def hyp_space_rel(prem, proof, line, exit_lines, sub=False):
             emb -= 1
         if emb_thresh > emb: 
             return False
+    if sub == True and emb_thresh < emb: 
+        return False
+    elif sub == True and line2: 
+        return hyp_space_rel(prem,proof[:len(prem) - line2 + 1],line,exit_lines,False,False)
     return True
 
 
@@ -364,23 +368,23 @@ def prover():
                         else: 
                             a1 = rule[2].split('-')
                             a2 = rule[3].split('-')
-                            proof_test = proof.copy()
-                            proof_test.append(' ')
-                            exit_test = exit_lines.copy()
-                            exit_test.append(len(proof))
+#                            proof_test = proof.copy()
+#                            proof_test.append(' ')
+#                            exit_test = exit_lines.copy()
+#                            exit_test.append(len(proof))
                             if int(a1[0]) > int(a1[1]) or int(a2[0]) > int(a2[1]): 
                                 print ('That is not an appropriate range of line numbers.')
-                            elif end_checker(prem,proof,exit_lines) == True and (hyp_space_rel(prem,proof_test,int(a1[0]),exit_test) == False \
-                            or hyp_space_rel(prem,proof_test,int(a2[0]),exit_test) == False or hyp_space_rel(prem,proof_test,int(a1[1]),exit_test) == False \
-                            or hyp_space_rel(prem,proof_test,int(a2[1]),exit_test) == False): 
-                                print ('You are still in that subproof.')
+#                           elif end_checker(prem,proof,exit_lines) == True and (hyp_space_rel(prem,proof_test,int(a1[0]),exit_test) == False \
+#                            or hyp_space_rel(prem,proof_test,int(a2[0]),exit_test) == False or hyp_space_rel(prem,proof_test,int(a1[1]),exit_test) == False \
+#                            or hyp_space_rel(prem,proof_test,int(a2[1]),exit_test) == False): 
+#                                print ('You are still in that subproof.')
                             elif int(a1[0]) < len(prem) or int(a2[0]) < len(prem) or \
                             type(proof[int(a1[0]) - len(prem)]) != list or type(proof[int(a2[0]) - len(prem)]) != list: 
                                 print ('Formulas at beginning of line number ranges must be assumptions.')
                             else: 
-                                if hyp_space_rel(prem,proof,int(a1[0]),exit_lines,True) == False or \
+                                if hyp_space_rel(prem,proof,int(a1[0]),exit_lines,True,int(a1[1])) == False or \
                                 hyp_space_rel(prem,proof,int(a1[1]),exit_lines,True) == False or \
-                                hyp_space_rel(prem,proof,int(a2[0]),exit_lines,True) == False or \
+                                hyp_space_rel(prem,proof,int(a2[0]),exit_lines,True,int(a2[1])) == False or \
                                 hyp_space_rel(prem,proof,int(a2[1]),exit_lines,True) == False: 
                                     print ('You can no longer use a specified formula.')
                                 elif str(assum(proof[int(a1[1]) - len(prem)])) != str(assum(proof[int(a2[1]) - len(prem)])): 
@@ -423,19 +427,19 @@ def prover():
                     try: 
                         a = rule[1].split('-')[0]
                         f = rule[1].split('-')[1]
-                        proof_test = proof.copy()
-                        proof_test.append(' ')
-                        exit_test = exit_lines.copy()
-                        exit_test.append(len(proof))
+#                        proof_test = proof.copy()
+#                        proof_test.append(' ')
+#                        exit_test = exit_lines.copy()
+#                        exit_test.append(len(prem) + len(proof))
                         if int(a) > int(f): 
                             print ('That is not an appropriate range of line numbers.')
                         elif int(a) < len(prem) or type(proof[int(a) - len(prem)]) != list: 
                             print ('Formula at the beginning of the line number range must be an assumption.')    
-                        elif end_checker(prem,proof,exit_lines) == True and (hyp_space_rel(prem,proof_test,int(a),exit_test) == False \
-                                         or hyp_space_rel(prem,proof_test,int(f),exit_test) == False): 
-                            print ('You are still in that subproof.')                        
+#                        elif end_checker(prem,proof,exit_lines) == True and (hyp_space_rel(prem,proof_test,int(a),exit_test,True) == False \
+#                                         or hyp_space_rel(prem,proof_test,int(f),exit_test,True) == False): 
+#                            print ('You are still in that subproof.')                        
                         else: 
-                            if hyp_space_rel(prem,proof,int(a),exit_lines,True) == False or \
+                            if hyp_space_rel(prem,proof,int(a),exit_lines,True,int(f)) == False or \
                             hyp_space_rel(prem,proof,int(f),exit_lines,True) == False: 
                                 print ('You can no longer use a specified formula.')
                             elif type(assum(proof[int(f) - len(prem)])) != TruthValue or \
@@ -519,21 +523,21 @@ def prover():
                 elif rule[0] == '>I': 
                     try: 
                         a = rule[1].split('-')
-                        proof_test = proof.copy()
-                        proof_test.append(' ')
-                        exit_test = exit_lines.copy()
-                        exit_test.append(len(proof))
+#                        proof_test = proof.copy()
+#                        proof_test.append(' ')
+#                        exit_test = exit_lines.copy()
+#                        exit_test.append(len(proof))
                         if int(a[0]) > int(a[1]): 
                             print ('That is not an appropriate range of line numbers.')
                         elif int(a[0]) < len(prem) or type(proof[int(a[0]) - len(prem)]) != list: 
                             print ('Formula at the beginning of the line number range must be an assumption.')
-                        elif end_checker(prem,proof,exit_lines) == True and (hyp_space_rel(prem,proof_test,int(a[0]),exit_test) == False \
-                                         or hyp_space_rel(prem,proof_test,int(a[1]),exit_test) == False): 
-                            print ('You are still in that subproof.')                               
+#                        elif end_checker(prem,proof,exit_lines) == True and (hyp_space_rel(prem,proof_test,int(a[0]),exit_test) == False \
+#                                         or hyp_space_rel(prem,proof_test,int(a[1]),exit_test) == False): 
+#                            print ('You are still in that subproof.')                               
                         else: 
                             a_form = assum(proof[int(a[0]) - len(prem)])
                             c_form = assum(proof[int(a[1]) - len(prem)])
-                            if hyp_space_rel(prem,proof,int(a[0]),exit_lines, True) == False or \
+                            if hyp_space_rel(prem,proof,int(a[0]),exit_lines, True, int(a[1])) == False or \
                             hyp_space_rel(prem,proof,int(a[1]),exit_lines, True) == False: 
                                 print('You can no longer use a specified formula.')
                             else: 
@@ -588,23 +592,23 @@ def prover():
                     try: 
                         a1 = rule[1].split('-')
                         a2 = rule[2].split('-')
-                        proof_test = proof.copy()
-                        proof_test.append(' ')
-                        exit_test = exit_lines.copy()
-                        exit_test.append(len(proof))
+#                        proof_test = proof.copy()
+#                        proof_test.append(' ')
+#                        exit_test = exit_lines.copy()
+#                        exit_test.append(len(proof))
                         if int(a1[0]) > int(a1[1]) or int(a2[0]) > int(a2[1]): 
                             print ('That is not an appropriate range of line numbers.')
                         elif int(a1[0]) < len(prem) or int(a2[0]) < len(prem) or type(proof[int(a1[0]) - len(prem)]) != list or \
                         type(proof[int(a2[0]) - len(prem)]) != list: 
                             print ('Formulas at the beginning of line number ranges must be assumptions.')
-                        elif end_checker(prem,proof,exit_lines) == True and (hyp_space_rel(prem,proof_test,int(a1[0]),exit_test) == False \
-                                         or hyp_space_rel(prem,proof_test,int(a2[0]),exit_test) == False or hyp_space_rel(prem,proof_test,int(a1[1]),exit_test) \
-                                         == False or hyp_space_rel(prem,proof_test,int(a2[1]),exit_test) == False): 
-                            print ('You are still in that subproof.') 
+#                        elif end_checker(prem,proof,exit_lines) == True and (hyp_space_rel(prem,proof_test,int(a1[0]),exit_test) == False \
+#                                         or hyp_space_rel(prem,proof_test,int(a2[0]),exit_test) == False or hyp_space_rel(prem,proof_test,int(a1[1]),exit_test) \
+#                                         == False or hyp_space_rel(prem,proof_test,int(a2[1]),exit_test) == False): 
+#                            print ('You are still in that subproof.') 
                         else: 
-                            if hyp_space_rel(prem,proof,int(a1[0]),exit_lines,True) == False or \
+                            if hyp_space_rel(prem,proof,int(a1[0]),exit_lines,True,int(a1[1])) == False or \
                             hyp_space_rel(prem,proof,int(a1[1]),exit_lines,True) == False or \
-                            hyp_space_rel(prem,proof,int(a2[0]),exit_lines,True) == False or \
+                            hyp_space_rel(prem,proof,int(a2[0]),exit_lines,True,int(a2[1])) == False or \
                             hyp_space_rel(prem,proof,int(a2[1]),exit_lines,True) == False: 
                                 print ('You can no longer use a specified formula.')
                             else: 
@@ -749,17 +753,17 @@ def prover():
                         print ('You must specify a line number, a constant, and a variable.')
                 elif rule[0] == 'XE': 
                     try: 
-                        proof_test = proof.copy()
-                        proof_test.append(' ')
-                        exit_test = exit_lines.copy()
-                        exit_test.append(len(proof))
+#                        proof_test = proof.copy()
+#                        proof_test.append(' ')
+#                        exit_test = exit_lines.copy()
+#                        exit_test.append(len(proof))
                         if hyp_space_rel(prem,proof,int(rule[1]),exit_lines) == False or \
-                        hyp_space_rel(prem,proof,int(rule[2]),exit_lines,True) == False or \
+                        hyp_space_rel(prem,proof,int(rule[2]),exit_lines,True,int(rule[3])) == False or \
                         hyp_space_rel(prem,proof,int(rule[3]),exit_lines,True) == False: 
                             print ('You can no longer use the specified formula.')
-                        elif end_checker(prem,proof,exit_lines) == True and (hyp_space_rel(prem,proof_test,int(rule[2]),exit_test) == False \
-                            or hyp_space_rel(prem,proof_test,int(rule[3]),exit_test) == False): 
-                            print ('You are still in that subproof.') 
+#                        elif end_checker(prem,proof,exit_lines) == True and (hyp_space_rel(prem,proof_test,int(rule[2]),exit_test) == False \
+#                            or hyp_space_rel(prem,proof_test,int(rule[3]),exit_test) == False): 
+#                            print ('You are still in that subproof.') 
 
                         elif rule[4][0].islower() == False and rule[4][0] not in string.digits(): 
                             print ('That is not an appropriate constant.')
