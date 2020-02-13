@@ -352,9 +352,9 @@ def parse(tokens):
         elif atomicTok(token):
             return (Atomic(token), index + 1)
         elif token == 'U': 
-            return (Universal(var=tokens[index+1], formula=parseForm(index + 2)[0]), index + 3)
+            return (Universal(var=tokens[index+1], formula=parseForm(index + 2)[0]), parseForm(index + 2)[1])
         elif token == 'X': 
-            return (Existential(var=tokens[index+1], formula=parseForm(index + 2)[0]), index + 3)
+            return (Existential(var=tokens[index+1], formula=parseForm(index + 2)[0]), parseForm(index + 2)[1])
         elif token == '~':
             (tree, nextIndex) = parseForm(index + 1)
             return (Not(tree), nextIndex)
