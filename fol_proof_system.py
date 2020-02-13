@@ -16,14 +16,17 @@ import string
 
 
 #function to flatten nested lists, which will be used to check for particular constants in proof system
-def remove_nestings(l, output=[]): 
-    for i in l: 
-        if type(i) == list: 
-            remove_nestings(i, output)
-        else: 
-            output.append(i)
-            
-    return output
+def remove_nestings(l): 
+    
+    def output_gen(l, output): 
+        for i in l: 
+            if type(i) == list: 
+                output_gen(i, output)
+            else: 
+                output.append(i)
+        return output
+    
+    return output_gen(l, output=[])
 
 
 
