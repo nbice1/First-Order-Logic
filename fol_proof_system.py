@@ -197,6 +197,8 @@ def prover():
             e = input('%')
             if e == 'Exit': 
                 break
+            elif len(e) == 0: 
+                pass
             else: 
                 rule = r.findall(e)
                 
