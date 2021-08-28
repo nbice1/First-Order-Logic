@@ -133,7 +133,7 @@ vE,j,k-l,m-n - Apply Disjunction Elimination to the disjunction at line j using 
 
 -EL,n,m - Apply Biconditional Elimination to the formula at line n using the right subformula at line m, outputting the left subformula. 
 
--I,k-l,m-n - Apply Biconditional Introduction using the formulas from k to l and m to n. The formula at k must be identical to the formula at n and the formula at l must be identical to the formula at m. 
+-I,k-l,m-n - Apply Biconditional Introduction using the subproofs from k to l and m to n. The formula at k must be identical to the formula at n and the formula at l must be identical to the formula at m. 
 
 =I,c - Apply Identity Introduction with constant c, outputting =(c,c). 
 
@@ -147,4 +147,4 @@ UE,n,c - Apply Universal Elimination to the formula at line n, replacing each fr
 
 UI,n,c,x - Apply Universal Introduction to the formula at line n, replacing each instance of constant c by variable x. Constant c cannot appear in a premise or an active assumption. 
 
-Some rules can currently be used in nonstandard ways, but the system should remain sound. Finding any violations of soundness would be greatly appreciated. 
+Some rules can currently be used in nonstandard ways, but the system should remain sound. Finding any violations of soundness would be greatly appreciated. I may construct a soundness proof in the near future. 
