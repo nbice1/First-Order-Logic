@@ -147,4 +147,4 @@ UE,n,c - Apply Universal Elimination to the formula at line n, replacing each fr
 
 UI,n,c,x - Apply Universal Introduction to the formula at line n, replacing each instance of constant c by variable x. Constant c cannot appear in a premise or an active assumption. 
 
-Some rules can currently be used in nonstandard ways, but the system should remain sound. Finding any violations of soundness would be greatly appreciated. I may construct a soundness proof in the near future. 
+Some rules can currently be used in nonstandard ways, but the system should remain sound (at least assuming the formulas given by the user do not violate the syntactic rules stated above, since in a small number of cases the system may not notice this). Finding any violations of soundness would be greatly appreciated. I may construct a soundness proof in the near future. 
