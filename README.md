@@ -56,7 +56,7 @@ a = a
 
 After running evaluator(), you can input "model", "evaluate", or "exit". 
 
-You should first define a model. After typing "model", you will be prompted to specify a domain of objects (separate inputs with commas). An example would be: 1,2,3,4. Note that the python "eval()" function is used to determine the intended datatypes. 
+You should first define a model. After typing "model", you will be prompted to specify a domain of objects (separate inputs with commas). An example would be: 1,2,3,4. Note that the python "eval()" function is used to determine the intended datatypes. Unfortunately, only finite models are definable within this system. 
 
 After specifying the domain, you will be prompted to specify the interpretations of expressions in the language. '=' is already interpreted as identity by default. First, specify an expression. Expressions should consist of letters and numerals. Constants begin with a lower-case letter or a numeral and predicates begin with an upper-case letter or '='. Note that 'T', 'F', 'U', 'X', and 'v' have logical meanings and should not be used. 
 
