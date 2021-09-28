@@ -30,7 +30,7 @@ The syntax is as follows:
 
 Atomic sentences have the form P(a,b,...,s). This also holds of the identity predicate, e.g. =(1,1) is a sentence while 1 = 1 is not. 'T' and 'F' are also treated as atomic sentences. 
 
-Any formula with a binary connective as its main connective must be surrounded by parentheses. Any other formula must not be surrounded by parentheses. 
+Any formula or subformula with a binary connective as its main connective must be surrounded by parentheses. Any other formula or subformula must not be surrounded by parentheses. 
 
 Example sentences: 
 
