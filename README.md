@@ -58,11 +58,11 @@ After running evaluator(), you can input "model", "evaluate", or "exit".
 
 You should first define a model. After typing "model", you will be prompted to specify a domain of objects (separate inputs with commas). An example would be: 1,2,3,4. Note that the python "eval()" function is used to determine the intended datatypes. 
 
-After specifying the domain, you will be prompted to specify the interpretations of expressions in the language. '=' is already interpreted as identity by default. First, specify an expression. Expressions should consist of letters and numbers. Constants begin with a lower-case letter or a number and predicates begin with an upper-case letter or '='. Note that 'T', 'F', 'U', 'X', and 'v' have logical meanings and should not be used. 
+After specifying the domain, you will be prompted to specify the interpretations of expressions in the language. '=' is already interpreted as identity by default. First, specify an expression. Expressions should consist of letters and numerals. Constants begin with a lower-case letter or a numeral and predicates begin with an upper-case letter or '='. Note that 'T', 'F', 'U', 'X', and 'v' have logical meanings and should not be used. 
 
-Then, specify the interpretation of the expression. One-place predicates should be given a sequence of objects as an interpretation, e.g. 1,2,3. Relational predicates should be given a sequence of tuples of objects as an interpretation, e.g. (3,1),(3,2),(2,1). Note that you should always make sure to only include objects located in the domain of the model, since the program currently will not check for this. The program also currently does not check that the arity is consistent. 
+Then, specify the interpretation of the expression. One-place predicates should be given a sequence of objects as an interpretation, e.g. 1,2,3. Relational predicates should be given a sequence of tuples of objects as an interpretation, e.g. (3,1),(3,2),(2,1). Note that you should always make sure to only include objects located in the domain of the model, since the program currently will not check for this. The program also currently does not check that the arity is consistent. Violating these conditions may cause errors or incorrect results. 
 
-Type "done" to finish your intepretation. You will then be asked if you want to add additional variables to the language. Default variables are 'u','v','w','x','y','z'. Separate new variables with commas. 
+Type "done" to finish your intepretation. You will then be asked if you want to add additional variables to the language. Default variables are 'u','w','x','y','z'. Separate new variables with commas. 
 
 With your model constructed, it is time to determine the truth-value of a sentence. After inputting "evaluate", input a sentence to determine its truth-value relative to the constructed model. 
 
