@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -205,7 +206,7 @@ class Bicond(BinaryOp):
 #the domain is assumed to be a set of objects and the interpretation is assumed to be a dictionary with 
 #expressions as keys and objects, sets of objects, or sets of tuples of objects as values
 class Model:
-    def __init__(self, domain, all_vars={'u','v','w','x','y','z'}): 
+    def __init__(self, domain, all_vars={'u','w','x','y','z'}): 
         self.domain = domain
         self.interp = {'=': {(x,x) for x in self.domain}}
         self.all_vars = all_vars
@@ -383,6 +384,5 @@ def parse(tokens):
 #now we have the functions necessary to determine the truth-value of an arbitrary sentence relative to a model
 def evaluate(formula, MOD): 
     return parse(tokenize(formula)).eval(MOD)
-
 
 
